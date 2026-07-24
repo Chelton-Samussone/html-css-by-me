@@ -1,2 +1,2 @@
 # html-css-by-me
-Meu repositorio
+Meu repositorio de estudos de html-css.
