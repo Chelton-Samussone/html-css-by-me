@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testo</title>
+</head>
+<body>
+    <p>
+    Use o codigo abaixo no arcGIS:
+    </p>
+    <pre><code><p style="color: aliceblue; background-color: black;">
+import arcpy
+import os
+
+# Definir o caminho para salvar os mapas exportados
+output_folder = r"C:\Seu\Caminho\Para\Salvar\Mapas"
+
+# Obter referência para o mapa atual
+mxd = arcpy.mapping.MapDocument("CURRENT")
+df = arcpy.mapping.ListDataFrames(mxd)[0]
+
+# Definir as camadas que serão alternadas
+layers = {
+    "Água": "Water",
+    "Árvores": "Trees",
+    "Vegetação Alagada": "Flooded vegetation",
+    "Cultivos": "Crops",
+    "Área Construída": "Built Area",
+    "Solo Exposto": "Bare ground",
+    "Neve/Gelo": "Snow/Ice",
+    "Nuvens": "Clouds",
+    "Pastagem": "Rangeland"
+}
+
+# Definir as combinações de camadas
+combinations = [
+    ["Água", "Árvores", "Cultivos"],
+    ["Água", "Vegetação Alagada", "Pastagem"],
+    ["Área Construída", "Solo Exposto"],
+    # Adicione mais combinações conforme necessário
+]
+
+for i, combo in enumerate(combinations):
+    # Alternar a visibilidade das camadas
+    for layer_name, layer_alias in layers.items():
+        layer = arcpy.mapping.ListLayers(mxd, layer_alias, df)[0]
+        if layer_name in combo:
+            layer.visible = True
+        else:
+            layer.visible = False
+    
+    # Atualizar o MXD
+    arcpy.RefreshActiveView()
+    arcpy.RefreshTOC()
+    
+    # Definir o nome do arquivo de saída
+    output_filename = os.path.join(output_folder, f"Mapa_{i+1}.pdf")
+    
+    # Exportar o mapa
+    arcpy.mapping.ExportToPDF(mxd, output_filename)
+    
+    print(f"Mapa {i+1} exportado para {output_filename}")
+
+print("Exportação concluída.")
+</p></code></pre>
+<p>
+    Eu gosto de água e <q>Água (fórmula: H2O) é uma substância química cujas moléculas são formadas por dois átomos de hidrogênio e um de oxigênio.</q></p>
+    <blockquote cite="https://pt.wikipedia.org/wiki/%C3%81gua">Água (fórmula: H2O) é uma substância química cujas moléculas são formadas por dois átomos de hidrogênio e um de oxigênio.</blockquote>
+<p>
+    Os arquitectos usam ferramentas como <abbr title="Computer Aided Design">CAD</abbr> e <abbr title="Geographic Information System">GIS</abbr> no dia-a-dia
+    </p>
+
+<p>
+    Leia de trás para frente <strong><bdo dir="rtl">Bonito</bdo></strong>
+</p>
+</body>
+</html>
