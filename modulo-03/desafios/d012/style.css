@@ -1,2 +1,92 @@
 @charset "UTF-8";
 
+body {
+    margin: 0;
+}
+
+header {
+    background-color: black;
+    text-align: center;
+    padding: 1vw;
+}
+
+h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10vw;
+    color: white;
+    margin: 0;
+}
+
+header > p {
+    color: white;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+
+}
+
+div {
+    margin: 0;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+section > p {
+    font-size: 5vw;
+}
+
+#div01 {
+    background-image: url('imagens/background001.jpg');
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#div02 {
+    background-image: url('imagens/background002.jpg');
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
+    padding-top: 2.5vw;
+}
+
+section {
+    padding: 0.1vw;
+    margin: 5vw 0;
+    padding: 2vw;
+}
+
+.section01 {
+    background-color: white;
+}
+
+.section02 {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.452);
+    width: 60vw;
+}
+
+.section03 {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.452);
+    width: 60vw;
+    margin-top: 2.5vw;
+}
+
+footer {
+    color: white;
+    background-color: black;
+    padding: 1vw;
+    
+}
+
+footer > p {
+    margin: 0;
+    text-align: center;
+}
